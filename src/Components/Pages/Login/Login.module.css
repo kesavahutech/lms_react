@@ -1,0 +1,35 @@
+.logindiv {
+  width: 60%;
+  height: 30rem;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.leftbackground {
+  height: 100%;
+  width: 100%;
+}
+
+.form {
+  height: 100%;
+  width: 100%;
+  padding: 1vh;
+  display: flex;
+  justify-content:flex-start;
+  align-items: center;
+  flex-direction: column;
+  background-color: whitesmoke;
+}
+
+img {
+    width : 100%;
+    height : 100%;
+}
+
+.logo {
+    margin-top: 0.5rem;
+    width: 8rem;
+    max-width: 169px;
+    height: 7rem;
+  }
