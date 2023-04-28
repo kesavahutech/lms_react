@@ -1,25 +1,19 @@
 import React, { useState } from "react";
 
-import { Row, Col, Input, Form, Collapse, Button, DatePicker } from "antd";
-import moment from 'moment';
+import { Row, Col, Input, Form, Collapse, Button } from "antd";
 import "./form.css";
 
 const { Panel } = Collapse;
 
-export default function Education(props) {
+export default function Address(props) {
   const [panels, setPanels] = useState([1]);
   const [activeKey, setactiveKey] = useState(1);
-
-  function disabledDate(current) {
-    // Disable all dates after the current year
-    return current && current.year() > moment().year();
-  }
   const nextPageHandler = (values) => {
-    props.changetab(4);
+    props.changetab(5);
     props.getdata(values);
   };
   const previousHandler = (e) => {
-    props.changetab(2);
+    props.changetab(3);
   };
   return (
     <Form layout="vertical" className="formdiv" onFinish={nextPageHandler}>
@@ -31,7 +25,7 @@ export default function Education(props) {
         onChange={(key) => setactiveKey(Number(key))}
       >
         {panels.map((id, ind) => {
-          const header = `Education Details-${ind + 1}`;
+          const header = `Address Details-${ind + 1}`;
           return (
             <Panel header={header} key={id}>
               <Row
@@ -39,14 +33,13 @@ export default function Education(props) {
                 className="inputrowdiv"
               >
                 <Col span={7}>
-                  <Form.Item label="Education Type" name={`edutype-${ind+1}`} rules={[{ required: true, message: 'Please input Education Type!' }]}>
-                    <Input size="large" placeholder="Education Type" />
+                  <Form.Item label="Address Type" name={`addtype-${ind+1}`} rules={[{ required: true, message: 'Please input Address Type!' }]}>
+                    <Input size="large" placeholder="Address Type" />
                   </Form.Item>
                 </Col>
                 <Col span={7}>
-                  <Form.Item label="Year of Passing" name={`yopassing-${ind+1}`} rules={[{ required: true, message: 'Please input Year of passing!' }]}>
-                    {/* <Input size="large" placeholder="Year of Passing" /> */}
-                    <DatePicker picker="year" style={{ width: "100%" }} disabledDate={disabledDate} />
+                  <Form.Item label="Door No." name={`adddoorno-${ind+1}`} rules={[{ required: true, message: 'Please input Door no!' }]}>
+                    <Input size="large" placeholder="Door No." />
                   </Form.Item>
                 </Col>
               </Row>
@@ -55,13 +48,13 @@ export default function Education(props) {
                 className="inputrowdiv"
               >
                 <Col span={7}>
-                  <Form.Item label="Percentage (%)" name={`edupercent-${ind+1}`} rules={[{ required: true, message: 'Please input Percentage!' }]}>
-                    <Input size="large" placeholder="Percentage (%)" />
+                  <Form.Item label="Street" name={`addstreet-${ind+1}`} rules={[{ required: true, message: 'Please input Street!' }]}>
+                    <Input size="large" placeholder="Street" />
                   </Form.Item>
                 </Col>
                 <Col span={7}>
-                  <Form.Item label="University Name" name={`uniname-${ind+1}`} rules={[{ required: true, message: 'Please input University name!' }]}>
-                    <Input size="large" placeholder="University Name" />
+                  <Form.Item label="Locality" name={`addlocality-${ind+1}`} rules={[{ required: true, message: 'Please input Locality!' }]}>
+                    <Input size="large" placeholder="Locality" />
                   </Form.Item>
                 </Col>
               </Row>
@@ -70,26 +63,31 @@ export default function Education(props) {
                 className="inputrowdiv"
               >
                 <Col span={7}>
-                  <Form.Item label="Institute Name" name={`instname-${ind+1}`} rules={[{ required: true, message: 'Please input Institute name' }]}>
-                    <Input size="large" placeholder="Institute Name" />
+                  <Form.Item label="City" name={`addcity-${ind+1}`} rules={[{ required: true, message: 'Please input City!' }]}>
+                    <Input size="large" placeholder="City" />
                   </Form.Item>
                 </Col>
                 <Col span={7}>
-                  <Form.Item label="Specialization" name={`specialization-${ind+1}`} rules={[{ required: true, message: 'Please input specialization!' }]}>
-                    <Input size="large" placeholder="Specialization" />
-                  </Form.Item>
-                </Col>
-              </Row>
-              <Row
-                gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}
-                className="inputrowdiv"
-              >
-                <Col span={7} offset={4}>
-                  <Form.Item label="State" name={`collegestate-${ind+1}`} rules={[{ required: true, message: 'Please input State!' }]}>
+                  <Form.Item label="State" name={`addstate-${ind+1}`} rules={[{ required: true, message: 'Please input State!' }]} >
                     <Input size="large" placeholder="State" />
                   </Form.Item>
                 </Col>
-                <Col offset={10} span={1}>
+              </Row>
+              <Row
+                gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}
+                className="inputrowdiv"
+              >
+                <Col offset={4} span={7}>
+                  <Form.Item label="PIN Code" name={`addpincode-${ind+1}`} rules={[{ required: true, message: 'Please input Pincode!' }]}>
+                    <Input size="large" placeholder="PIN Code" />
+                  </Form.Item>
+                </Col>
+                <Col span={7}>
+                  <Form.Item label="Land Mark" name={`addlandmark-${ind+1}`} rules={[{ required: true, message: 'Please input Landmark!' }]}>
+                    <Input size="large" placeholder="Land Mark" />
+                  </Form.Item>
+                </Col>
+                <Col offset={3} span={1}>
                   {panels.length === 1 && (
                     <Button
                       onClick={() => {
@@ -120,7 +118,11 @@ export default function Education(props) {
         <Button size="large" type="primary" onClick={previousHandler}>
           Previous
         </Button>
-        <Button size="large" type="primary" htmlType="submit">
+        <Button
+          size="large"
+          type="primary"
+          htmlType="submit"
+        >
           Next
         </Button>
       </Row>

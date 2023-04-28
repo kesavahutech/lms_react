@@ -1,7 +1,7 @@
 import './App.css';
 import Tabs from './Components/Pages/FormTabs/Tabs';
 
-import Login from './Components/Pages/Login/Login';
+// import Login from './Components/Pages/Login/Login';
 
 function App() {
   return (
