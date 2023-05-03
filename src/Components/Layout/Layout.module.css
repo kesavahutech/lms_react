@@ -1,0 +1,33 @@
+.logo {
+  width: 64px;
+  height: 58px;
+  border-radius: 10px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  background-color: rgb(232, 219, 219);
+}
+
+.search {
+  width:100%;
+}
+
+.avatardiv{
+  color: whitesmoke;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+  width: 10rem;
+}
+
+a {
+  color: black;
+  margin-left: 8px;
+  font-size: large;
+}

@@ -10,6 +10,12 @@ body {
   background-size: cover;
   background-attachment: fixed;
   user-select: none;
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
 }
 
 code {
