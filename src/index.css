@@ -10,6 +10,7 @@ body {
   background-size: cover;
   background-attachment: fixed;
   user-select: none;
+  overflow: hidden;
 }
 
 ::-webkit-scrollbar {
